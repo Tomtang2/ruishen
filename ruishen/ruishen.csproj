@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1558F935-6F35-4AF4-B40E-6869F7497ED4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ruishen</RootNamespace>
+    <AssemblyName>轮轴检测系统</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon %287%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Layout, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DigitalSignalProcessing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DigitalSignalProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Analysis.Enterprise, Version=15.0.45.49153, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\MS\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.Analysis.Enterprise.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\MS\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.DAQmx, Version=18.6.45.0, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\software_install_way\NI\install\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.DAQmx.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.UI, Version=15.0.45.49153, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\MS\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.UI.WindowsForms, Version=15.0.45.49153, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\software_install_way\NI\install\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.UI.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\AlgorithmConfig.cs" />
+    <Compile Include="Entity\BearingConfig.cs" />
+    <Compile Include="Entity\ChannelParameterConfig.cs" />
+    <Compile Include="Entity\DataInformation.cs" />
+    <Compile Include="Entity\ParameterConfig.cs" />
+    <Compile Include="Entity\ProductStyle.cs" />
+    <Compile Include="Entity\SaveDataInformation.cs" />
+    <Compile Include="Entity\ThresholdUpDownValue.cs" />
+    <Compile Include="Entity\VibrationTimeCount.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenericSingleton.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="傅里叶变换\Complex.cs" />
+    <Compile Include="傅里叶变换\FFT_IFFT.cs" />
+    <Compile Include="公共中间量\DataAnalysisCommonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共中间量\DataAnalysisCommonForm.Designer.cs">
+      <DependentUpon>DataAnalysisCommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共中间量\DataTempStorage.cs" />
+    <Compile Include="公共中间量\ProductInformationCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共中间量\ProductInformationCheckForm.Designer.cs">
+      <DependentUpon>ProductInformationCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共中间量\SoundPlayPointer.cs" />
+    <Compile Include="公共中间量\ThresholdSetWindows1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共中间量\ThresholdSetWindows1.Designer.cs">
+      <DependentUpon>ThresholdSetWindows1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="参数配置\BearingSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="参数配置\BearingSetForm.Designer.cs">
+      <DependentUpon>BearingSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="参数配置\ChannelParameterSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="参数配置\ChannelParameterSetForm.Designer.cs">
+      <DependentUpon>ChannelParameterSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="参数配置\SampleSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="参数配置\SampleSetForm.Designer.cs">
+      <DependentUpon>SampleSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="参数配置\ThresholdSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="参数配置\ThresholdSetForm.Designer.cs">
+      <DependentUpon>ThresholdSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="参数配置\轴承参数\BearingQueryFollowCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="参数配置\轴承参数\BearingQueryFollowCondition.Designer.cs">
+      <DependentUpon>BearingQueryFollowCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="声音分析\NoiseDataSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="声音分析\NoiseDataSearch.Designer.cs">
+      <DependentUpon>NoiseDataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="声音分析\NoiseSTFT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="声音分析\NoiseSTFT.Designer.cs">
+      <DependentUpon>NoiseSTFT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="声音算法代码\NoiseCharacterValue.cs" />
+    <Compile Include="声音算法代码\VoiceOctave.cs" />
+    <Compile Include="声音算法代码\WavGenerate.cs" />
+    <Compile Include="实时监测\DataCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\DataCollection.Designer.cs">
+      <DependentUpon>DataCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\NoisyMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\NoisyMonitor.Designer.cs">
+      <DependentUpon>NoisyMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\RealFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\RealFilter.Designer.cs">
+      <DependentUpon>RealFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\RealMonitorCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\RealMonitorCollection.Designer.cs">
+      <DependentUpon>RealMonitorCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\RealMonitorCollectionS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\RealMonitorCollectionS.Designer.cs">
+      <DependentUpon>RealMonitorCollectionS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\VibrationMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\VibrationMonitor.Designer.cs">
+      <DependentUpon>VibrationMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="实时监测\VibrationStatistical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="实时监测\VibrationStatistical.Designer.cs">
+      <DependentUpon>VibrationStatistical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="平均方式\LinearAverage.cs" />
+    <Compile Include="序列化和反序列化\Serialization.cs" />
+    <Compile Include="报告生成\OutputReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报告生成\OutputReport.Designer.cs">
+      <DependentUpon>OutputReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报告生成\StatusInformationDisplay.cs" />
+    <Compile Include="报告生成\TestResultGeneration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报告生成\TestResultGeneration.Designer.cs">
+      <DependentUpon>TestResultGeneration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动分析\VibrationSTFT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="振动分析\VibrationSTFT.Designer.cs">
+      <DependentUpon>VibrationSTFT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动分析\VibrationDataSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="振动分析\VibrationDataSearch.Designer.cs">
+      <DependentUpon>VibrationDataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动分析\FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="振动分析\FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动分析\SpectrumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="振动分析\SpectrumForm.Designer.cs">
+      <DependentUpon>SpectrumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动分析\VirbratiomFrequencySpectrum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="振动分析\VirbratiomFrequencySpectrum.Designer.cs">
+      <DependentUpon>VirbratiomFrequencySpectrum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="振动算法代码\VibrationAlgorithm.cs" />
+    <Compile Include="数据库公告类\MysqlHelper.cs" />
+    <Compile Include="数据管理\DataResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据管理\DataResult.Designer.cs">
+      <DependentUpon>DataResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据管理\DataSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据管理\DataSearch.Designer.cs">
+      <DependentUpon>DataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据管理\UserManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据管理\UserManage.Designer.cs">
+      <DependentUpon>UserManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\DataCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\DataCollection.Designer.cs">
+      <DependentUpon>DataCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="公共中间量\DataDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="公共中间量\DataDisplay.Designer.cs">
+      <DependentUpon>DataDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\DataGridViewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\DataGridViewTest.Designer.cs">
+      <DependentUpon>DataGridViewTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\Paging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\Paging.Designer.cs">
+      <DependentUpon>Paging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\ParallelComputing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\ParallelComputing.Designer.cs">
+      <DependentUpon>ParallelComputing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\Sound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\Sound.Designer.cs">
+      <DependentUpon>Sound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\TimeTickerTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\TimeTickerTest.Designer.cs">
+      <DependentUpon>TimeTickerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\Treeview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\Treeview.Designer.cs">
+      <DependentUpon>Treeview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="测试代码\XYWaveGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="测试代码\XYWaveGraph.Designer.cs">
+      <DependentUpon>XYWaveGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="窗函数\Bartlett.cs" />
+    <Compile Include="窗函数\Blackman.cs" />
+    <Compile Include="窗函数\Boxcar.cs" />
+    <Compile Include="窗函数\Hamming.cs" />
+    <Compile Include="窗函数\Hanning.cs" />
+    <Compile Include="窗函数\UnitImpulseReact.cs" />
+    <Compile Include="算法类型\AlgorithmStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="算法类型\AlgorithmStyle.Designer.cs">
+      <DependentUpon>AlgorithmStyle.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共中间量\DataAnalysisCommonForm.resx">
+      <DependentUpon>DataAnalysisCommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共中间量\ProductInformationCheckForm.resx">
+      <DependentUpon>ProductInformationCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共中间量\ThresholdSetWindows1.resx">
+      <DependentUpon>ThresholdSetWindows1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="参数配置\BearingSetForm.resx">
+      <DependentUpon>BearingSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="参数配置\ChannelParameterSetForm.resx">
+      <DependentUpon>ChannelParameterSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="参数配置\SampleSetForm.resx">
+      <DependentUpon>SampleSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="参数配置\ThresholdSetForm.resx">
+      <DependentUpon>ThresholdSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="参数配置\轴承参数\BearingQueryFollowCondition.resx">
+      <DependentUpon>BearingQueryFollowCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="声音分析\NoiseDataSearch.resx">
+      <DependentUpon>NoiseDataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="声音分析\NoiseSTFT.resx">
+      <DependentUpon>NoiseSTFT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\DataCollection.resx">
+      <DependentUpon>DataCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\NoisyMonitor.resx">
+      <DependentUpon>NoisyMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\RealFilter.resx">
+      <DependentUpon>RealFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\RealMonitorCollection.resx">
+      <DependentUpon>RealMonitorCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\RealMonitorCollectionS.resx">
+      <DependentUpon>RealMonitorCollectionS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\VibrationMonitor.resx">
+      <DependentUpon>VibrationMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="实时监测\VibrationStatistical.resx">
+      <DependentUpon>VibrationStatistical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报告生成\OutputReport.resx">
+      <DependentUpon>OutputReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报告生成\TestResultGeneration.resx">
+      <DependentUpon>TestResultGeneration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="振动分析\VibrationSTFT.resx">
+      <DependentUpon>VibrationSTFT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="振动分析\VibrationDataSearch.resx">
+      <DependentUpon>VibrationDataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="振动分析\FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="振动分析\SpectrumForm.resx">
+      <DependentUpon>SpectrumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="振动分析\VirbratiomFrequencySpectrum.resx">
+      <DependentUpon>VirbratiomFrequencySpectrum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据管理\DataResult.resx">
+      <DependentUpon>DataResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据管理\DataSearch.resx">
+      <DependentUpon>DataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据管理\UserManage.resx">
+      <DependentUpon>UserManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\DataCollection.resx">
+      <DependentUpon>DataCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="公共中间量\DataDisplay.resx">
+      <DependentUpon>DataDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\DataGridViewTest.resx">
+      <DependentUpon>DataGridViewTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\Paging.resx">
+      <DependentUpon>Paging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\ParallelComputing.resx">
+      <DependentUpon>ParallelComputing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\Sound.resx">
+      <DependentUpon>Sound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\TimeTickerTest.resx">
+      <DependentUpon>TimeTickerTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\Treeview.resx">
+      <DependentUpon>Treeview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="测试代码\XYWaveGraph.resx">
+      <DependentUpon>XYWaveGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="算法类型\AlgorithmStyle.resx">
+      <DependentUpon>AlgorithmStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calm-waters-clouds-cold-country-327434.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ocean-wave-seashore-2049422.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo-of-buildings-1587097 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sailboat-sailing-on-water-near-island-1482193.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view-of-mountain-21054161.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VMD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\板.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\包络.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\包络1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\包络11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存设置1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存设置11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存数据图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\报告生成.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\采集端登录界面_meitu_1_meitu_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\采集端登录界面_meitu_1_meitu_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\参数设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\参数设置1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\导出.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登录.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登录界面.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\非线性变换.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\服务器管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\服务器管理1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\个人账户管理.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\混沌.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\经验模式.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始保存.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始保存1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史数据查询图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史数据查询图标1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\历史数据查询图标11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\联机.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\联机1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\滤波.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\滤波1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\频域波形.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\清除图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\趋势分析.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\趋势分析1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日志管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日志管理1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日志管理11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\软件系统-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\删除传感器信息图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\删除用户.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\时域波形.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\时域波形1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\实时参量表背景.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数据采集-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数据采集-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\水平.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\水平1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\添加传感器信息背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\添加传感器信息图标.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\添加用户.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\添加用户1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\系统设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\系统设置1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\显示所有用户.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\相关分析.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\相关分析1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\信号分段.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\信号分段1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\修改用户资料.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\颜色设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户管理.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户管理1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户切换.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户注册.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户注册1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\账号管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\账号管理1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\账号管理2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\账号管理11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轴心轨迹.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轴心轨迹1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轴心位置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轴心位置1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\注册背景.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\注册背景1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\桌面采集端.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_output-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_output-56.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_output-58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_output-60_meitu_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32-32软件系统.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128-03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\128-031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bode1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view-of-mountain-2105416.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="数据交互\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A计权.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\振动.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\声音.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\实时滤波.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\倍频程.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\时频谱.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RMS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\品质计算.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\回音.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批量导出.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\批量处理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\加速度.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\速度.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\位移.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数据检索.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\噪声监测.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\实时监测.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\品质1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\品质2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EXCEL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TXT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数据删除.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\阈值确定.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轴承.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\启动.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refactor.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\主轴.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\播放图片.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\螺栓.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\传感器.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\声音点击.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\振动点击.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存数据点击.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存数据.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangZheng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\全局监测.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\全局监测中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\算法.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\回听.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\轮对.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon %287%29.ico" />
+    <None Include="Resources\noise.wav" />
+    <None Include="Resources\心电图.jpg" />
+    <None Include="Resources\星空.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
